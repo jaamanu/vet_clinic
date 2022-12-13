@@ -57,11 +57,11 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [SQL TABLE] <a name="about-project"></a>
+# 📖 [VET_CLINIC] <a name="about-project"></a>
 
 > Describe your project in 1 or 2 sentences.
 
-**[SQL TABLE]** is a...
+**[VET_CLINIC]** is a...
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -124,6 +124,11 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
+In order to run this project you need:
+- PostgreSQL
+- Terminal basics
+- Broad Understanding of SQL
+- Git & github
 <!--
 Example command:
 
