@@ -1,9 +1,10 @@
 /* Database schema to keep the structure of entire database. */
 
-CREATE TABLE animal (
-id INT PRIMARY KEY NOT NULL,
-name VARCHAR(50),
-date_of_birth date,
-escape_attempts INT,
-neutered bool,
-weight_kg decimal );
+CREATE TABLE animals (
+  id INT NOT NULL PRIMARY KEY,
+  name VARCHAR(100),
+  date_of_birth DATE,
+  escape_attempts INT,
+  neutered BOOL,
+  weight_kg DECIMAL 
+);
