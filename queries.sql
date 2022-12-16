@@ -1,14 +1,14 @@
 /*Queries that provide answers to the questions from all projects.*/
 
-SELECT * from animals WHERE name = 'Luna';
-SELECT * FROM animals WHERE name LIKE '%mon';
-SELECT name FROM animals WHERE date_of_birth BETWEEN DATE '2016-01-01' AND '2019-12-31';
-SELECT name FROM animals WHERE neutered IS true AND escape_attempts < 3;
-SELECT date_of_birth FROM animals WHERE name IN ('Agumon', 'Pikachu');
-SELECT name, escape_attempts FROM animals WHERE weight_kg > 10.5;
-SELECT * FROM animals WHERE neutered IS true;
-SELECT * FROM animals WHERE name != 'Gabumon';
-SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3
+SELECT * from animal WHERE name = 'Luna';
+SELECT * FROM animal WHERE name LIKE '%mon';
+SELECT name FROM animal WHERE date_of_birth BETWEEN DATE '2016-01-01' AND '2019-12-31';
+SELECT name FROM animal WHERE neutered IS true AND escape_attempts < 3;
+SELECT date_of_birth FROM animal WHERE name IN ('Agumon', 'Pikachu');
+SELECT name, escape_attempts FROM animal WHERE weight_kg > 10.5;
+SELECT * FROM animal WHERE neutered IS true;
+SELECT * FROM animal WHERE name != 'Gabumon';
+SELECT * FROM animal WHERE weight_kg BETWEEN 10.4 AND 17.3
 
 -- Transactions
 BEGIN;
@@ -78,3 +78,47 @@ GROUP BY species;
 SELECT species, CAST(AVG(escape_attempts) AS DECIMAL(10)) AS "Average of escaping" FROM animal
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
+
+SELECT name, full_name
+  FROM animal
+  INNER JOIN owners
+  ON animal.owners_id = owners.id
+  WHERE owners.full_name = 'Melody Pond';
+
+SELECT animal.name, species.name
+  FROM animal
+  INNER JOIN species
+  ON animal.species_id = species.id
+  WHERE species.name = 'Pokemon';
+
+SELECT owners.full_name, animal.name
+  FROM owners
+  LEFT JOIN animal
+  ON owners.id = animal.owners_id;
+
+SELECT COUNT(animal.name), species.name
+  FROM animal
+  INNER JOIN species
+  ON animal.species_id = species.id
+  GROUP BY species.name;
+
+SELECT owners.full_name, animal.name, species.name
+  FROM owners
+  INNER JOIN animal
+  ON owners.id = animal.owners_id
+  INNER JOIN species
+  ON species.id = animal.species_id
+  WHERE species.name = 'Digimon' AND owners.full_name = 'Jennifer Orwell';
+
+SELECT owners.full_name, animal.name, animal.escape_attempts
+  FROM owners
+  INNER JOIN animal
+  ON owners.id = animal.owners_id
+  WHERE owners.full_name = 'Dean Winchester' AND animal.escape_attempts = 0;
+
+SELECT owners.full_name , COUNT(*)
+  FROM owners
+  INNER JOIN animal
+  ON owners.id = animal.owners_id
+  GROUP BY owners.full_name
+  ORDER BY count DESC LIMIT 1;
