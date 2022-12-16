@@ -17,16 +17,16 @@ INSERT INTO animal (id, name, date_of_birth, escape_attempts, neutered, weight_k
 VALUES (4, 'Devimon', 'May 12, 2017', 5, true, 11);
 
 INSERT INTO animal (id, name, date_of_birth, escape_attempts, neutered, weight_kg)
-VALUES (5, 'Charmander', 'Feb 03, 2020', 0, false, 11);
+VALUES (5, 'Charmander', 'Feb 03, 2020', 0, false, -11);
 
 INSERT INTO animal (id, name, date_of_birth, escape_attempts, neutered, weight_kg)
-VALUES (6, 'Plantmon', 'Nov 15, 2021', 2, true, 5.7);
+VALUES (6, 'Plantmon', 'Nov 15, 2021', 2, true, -5.7);
 
 INSERT INTO animal (id, name, date_of_birth, escape_attempts, neutered, weight_kg)
-VALUES (7, 'Squirtle', 'Jun 12, 2005', 1, true, 45);
+VALUES (7, 'Squirtle', 'Jun 12, 2005', 1, true, -12.3);
 
 INSERT INTO animal (id, name, date_of_birth, escape_attempts, neutered, weight_kg)
-VALUES (8, 'Angemon', 'Jun 12, 2005', 1, true, 45);
+VALUES (8, 'Angemon', 'Jun 12, 2005', 1, true, -45);
 
 INSERT INTO animal (id, name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES (9, 'Boarmon', 'Jun 07, 2005', 7, true, 20.4);
