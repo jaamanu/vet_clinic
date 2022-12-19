@@ -6,7 +6,7 @@ CREATE TABLE animal (
   date_of_birth DATE,
   escape_attempts INT,
   neutered BOOL,
-  weight_kg DECIMAL, 
+  weight_kg DECIMAL
 );
 ALTER TABLE animal
 ADD species VARCHAR(100);
@@ -37,7 +37,7 @@ ALTER TABLE animal
 
 ALTER TABLE animal
   ADD CONSTRAINT fk_owner
-  FOREIGN KEY (owner_id)
+  FOREIGN KEY (owners_id)
   REFERENCES owners(id);
 
 ALTER TABLE animal
@@ -63,14 +63,28 @@ CREATE TABLE specializations (
  );
 
 CREATE TABLE visits(
-    vet_id INT,
-    animal_id INT,
-    date_of_visit DATE,
-    PRIMARY KEY (vet_id, animal_id),
-    CONSTRAINT fk_vets
-        FOREIGN KEY (vet_id)
-            REFERENCES vets(id),
-    CONSTRAINT fk_animal
-        FOREIGN KEY (animal_id)
-            REFERENCES animal(id)
+id integer NOT NULL GENERATED ALWAYS AS identity,
+vet_id integer,
+animal_id integer,
+date_of_visit DATE,
+PRIMARY KEY (id),
+CONSTRAINT fk_vets
+FOREIGN KEY (vet_id)
+REFERENCES vets(id),
+CONSTRAINT fk_animal
+FOREIGN KEY (animal_id)
+REFERENCES animal(id)
 );
+
+--CREATE TABLE visits(
+--    vet_id INT,
+--    animal_id INT,
+--    date_of_visit DATE,
+--    PRIMARY KEY (vet_id, animal_id),
+--    CONSTRAINT fk_vets
+--        FOREIGN KEY (vet_id)
+--            REFERENCES vets(id),
+--    CONSTRAINT fk_animal
+--        FOREIGN KEY (animal_id)
+--            REFERENCES animal(id)
+--);
