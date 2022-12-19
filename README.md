@@ -145,13 +145,6 @@ git clone https://github.com/jaamanu/vet_clinic.git
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
 
 ## 👥 Authors <a name="authors"></a>
 
