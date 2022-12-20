@@ -75,16 +75,3 @@ CONSTRAINT fk_animal
 FOREIGN KEY (animal_id)
 REFERENCES animal(id)
 );
-
---CREATE TABLE visits(
---    vet_id INT,
---    animal_id INT,
---    date_of_visit DATE,
---    PRIMARY KEY (vet_id, animal_id),
---    CONSTRAINT fk_vets
---        FOREIGN KEY (vet_id)
---            REFERENCES vets(id),
---    CONSTRAINT fk_animal
---        FOREIGN KEY (animal_id)
---            REFERENCES animal(id)
---);
